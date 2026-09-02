@@ -49,13 +49,13 @@ Optimize for decision value, not volume.
 8. Render the report using [output-contract.md](references/output-contract.md), with
    citations linking directly to the sources actually opened.
 
-For the X lane, run `python3 scripts/fetch_x_frontier.py` first, passing the report's UTC
-window through `--start-time` and `--end-time`. It uses the official Search API with the
-minimum number of query batches for every X1 handle plus one deterministic X2 rotation,
-excludes replies and retweets, and emits canonical post URLs. It reads credentials only
-from `X_BEARER_TOKEN`. If the command returns `degraded` or exit code 2, do not treat an
-empty result as proof of no updates; follow the access ladder in
-[x-voices.md](references/x-voices.md) and report the failed path.
+For the X lane, default to no-paid mode: scan every voice's canonical fallback plus
+date-scoped public search for canonical X post URLs. Never use account cookies,
+unofficial Web/GraphQL clients, or scripted signed-in browsing in a scheduled run. An
+empty public search result is not proof of no updates; follow the coverage wording in
+[x-voices.md](references/x-voices.md). Run `python3 scripts/fetch_x_frontier.py` only
+when the operator has explicitly opted into paid X API usage and `X_BEARER_TOKEN` is
+already configured.
 
 On a scheduled run, execute immediately without asking intake questions. Post the digest
 to the task’s delivery thread. Do not create local files unless the user explicitly asks

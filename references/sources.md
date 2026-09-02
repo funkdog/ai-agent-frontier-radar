@@ -85,11 +85,11 @@ labels, and promotion rules. Check every X1 account on each scheduled run and ro
 accounts across seven days. These posts feed the separate `Frontier Voices` section and
 do not bypass the evidence gate for `Must Read`.
 
-The primary collection path is `scripts/fetch_x_frontier.py`, backed by the official X
-Search API and the scheduler secret `X_BEARER_TOKEN`. The collector is read-only, uses an
-exact UTC window, excludes replies and retweets, and returns structured coverage. X API
-pricing is pay-per-resource; keep the default three-page cap and disclose truncation
-rather than silently increasing cost.
+No-paid mode is the default: scan the canonical fallback for every X1 voice and the
+rotating X2 voice, then use date-scoped public search only to discover canonical post
+URLs. Account-cookie automation and unofficial Web/GraphQL clients are prohibited. The
+official API collector in `scripts/fetch_x_frontier.py` is an opt-in paid path, never an
+automatic fallback.
 
 ## Secondary recall — Never sufficient alone
 

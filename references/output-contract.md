@@ -42,7 +42,9 @@ Today: {one-sentence synthesis, or “No high-signal update passed the gate.”}
 - International labs: `{updated/no update/degraded counts}`; name every degraded source.
 - Chinese labs: `{updated/no update/degraded counts}`; name every degraded source.
 - Open-source Agent runtimes: `{updated/no update/degraded counts}`; separate stable and prerelease activity.
-- X Frontier Voices: `{X1 checked / X2 rotated / degraded counts}`; name every degraded access path.
+- X Frontier Voices: `{mode / X1 fallback count / X2 rotation / X-native status}`; in
+  no-paid mode write `degraded (public index only)` and never imply that
+  the account timelines were comprehensively checked.
 - Secondary gap check: `{sources checked}`
 
 ## Provenance
