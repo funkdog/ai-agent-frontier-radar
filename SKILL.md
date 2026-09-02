@@ -49,6 +49,14 @@ Optimize for decision value, not volume.
 8. Render the report using [output-contract.md](references/output-contract.md), with
    citations linking directly to the sources actually opened.
 
+For the X lane, run `python3 scripts/fetch_x_frontier.py` first, passing the report's UTC
+window through `--start-time` and `--end-time`. It uses the official Search API with the
+minimum number of query batches for every X1 handle plus one deterministic X2 rotation,
+excludes replies and retweets, and emits canonical post URLs. It reads credentials only
+from `X_BEARER_TOKEN`. If the command returns `degraded` or exit code 2, do not treat an
+empty result as proof of no updates; follow the access ladder in
+[x-voices.md](references/x-voices.md) and report the failed path.
+
 On a scheduled run, execute immediately without asking intake questions. Post the digest
 to the task’s delivery thread. Do not create local files unless the user explicitly asks
 for an archive.

@@ -85,6 +85,12 @@ labels, and promotion rules. Check every X1 account on each scheduled run and ro
 accounts across seven days. These posts feed the separate `Frontier Voices` section and
 do not bypass the evidence gate for `Must Read`.
 
+The primary collection path is `scripts/fetch_x_frontier.py`, backed by the official X
+Search API and the scheduler secret `X_BEARER_TOKEN`. The collector is read-only, uses an
+exact UTC window, excludes replies and retweets, and returns structured coverage. X API
+pricing is pay-per-resource; keep the default three-page cap and disclose truncation
+rather than silently increasing cost.
+
 ## Secondary recall — Never sufficient alone
 
 | Source | Surface | Purpose |

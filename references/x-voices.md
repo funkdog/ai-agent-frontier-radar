@@ -8,15 +8,37 @@ feed and does not turn social claims into facts.
 
 Use the first available path:
 
-1. Read the original post through X API, direct X access, or a signed-in browser.
-2. Use a date-scoped search restricted to `x.com/{handle}/status`, then open the
+1. Run `python3 scripts/fetch_x_frontier.py`, passing the report's UTC window through
+   `--start-time` and `--end-time`. It queries all X1 voices plus one deterministic X2
+   rotation through the official X Search API, excludes replies and retweets, and
+   outputs canonical URLs. Configure `X_BEARER_TOKEN` only in the scheduler's secret
+   environment. Never put the token in this Skill, a repository, a command-line
+   argument, logs, or chat.
+2. If the official collector is unavailable, use a signed-in browser only when the
+   runtime actually exposes that persistent browser session. Browser storage state and
+   cookies are credentials: keep them outside the repository, never print them, and
+   expect periodic reauthentication.
+3. Use a date-scoped search restricted to `x.com/{handle}/status`, then open the
    canonical post URL.
-3. Check the author's canonical blog, newsletter, GitHub, paper page, or employer blog
+4. Check the author's canonical blog, newsletter, GitHub, paper page, or employer blog
    for the same idea.
 
 If the full timeline cannot be read, mark X coverage `degraded`; search results are not
 proof of absence. Third-party mirrors may reveal a candidate URL but are never the cited
 source. Do not quote a screenshot or repost when the original is unavailable.
+
+Do not make RSSHub, twscrape, gallery-dl, Nitter, or another unofficial GraphQL/Web API
+client the scheduled primary path. RSSHub, twscrape, and gallery-dl require an X account
+session cookie and can break when X changes private endpoints; if explicitly enabled,
+use them only for discovery and still open the canonical post. Nitter is not an available
+fallback: its upstream repository was archived on 2026-08-26 after X demanded permanent
+takedown of the project and its instances.
+
+The official API is pay-per-resource. The collector reports observed Post and expanded
+User resource counts and defaults to at most three 100-result pages per query batch. If
+that cap is reached, it returns `degraded`; do not raise the cap silently. The recent
+endpoint covers seven days. Older windows automatically use full-archive search and may
+require additional account access and spend.
 
 An original post is primary evidence for the author's own thesis or firsthand report.
 For benchmarks, releases, causal claims, incidents, or comparisons, open the linked
