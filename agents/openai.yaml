@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI & Agent Frontier Radar"
+  short_description: "Daily AI research, runtime releases, and expert voices"
+  default_prompt: "Use $ai-agent-frontier-radar to produce today’s evidence-backed AI and agent frontier digest, including high-signal open-source releases and Frontier Voices."
