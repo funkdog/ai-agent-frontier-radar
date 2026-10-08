@@ -24,7 +24,7 @@ inference, multimodal agents, and human-agent collaboration.
 | Organization | Official surfaces |
 |---|---|
 | OpenAI | `https://openai.com/research/index/`, `https://openai.com/news/` |
-| Anthropic | `https://www.anthropic.com/research/`, `https://www.anthropic.com/engineering`, `https://www.anthropic.com/news` |
+| Anthropic | `https://www.anthropic.com/research/`, `https://www.anthropic.com/engineering`, `https://www.anthropic.com/news`, `https://claude.com/blog` (Claude / Claude Code product updates) |
 | Google DeepMind | `https://deepmind.google/discover/blog/`, `https://deepmind.google/research/` |
 | Meta AI | `https://ai.meta.com/blog/`, `https://ai.meta.com/research/` |
 | Microsoft Research | `https://www.microsoft.com/en-us/research/blog/` |
@@ -32,6 +32,16 @@ inference, multimodal agents, and human-agent collaboration.
 | Hugging Face | `https://huggingface.co/blog`, `https://huggingface.co/papers` |
 | Mistral AI | `https://mistral.ai/news/`, `https://github.com/mistralai` |
 | Cohere | `https://cohere.com/research`, `https://cohere.com/blog` |
+
+For Anthropic, scan `claude.com/blog` separately from the research/engineering/news
+surfaces and Claude Code releases. Report the product blog's coverage status explicitly;
+checking another Anthropic surface does not substitute for this scan.
+
+Product updates qualify when they materially change Agent capabilities or workflows,
+such as project-level coordination, shared memory, cloud execution, or permission and
+recovery boundaries. Verify behavior and rollout limits in linked official documentation,
+apply the normal quality gate, and deduplicate against related releases. Routine UI or
+marketing announcements do not qualify merely because they are new.
 
 ## Chinese labs — Daily core
 
